@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'telas/inicio.dart';
+import 'inicio.dart';
 
 void main() {
   runApp(const EBX());
