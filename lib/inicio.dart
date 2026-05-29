@@ -89,7 +89,7 @@ class Inicio extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ContatoPage(),
+                    builder: (context) => ContatoPage(),
                   ),
                 );
               },

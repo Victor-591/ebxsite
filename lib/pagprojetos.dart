@@ -8,7 +8,7 @@ class PagProjetos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Projetos Finalizados'),
+        title: const Text('Galeria de Projetos'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
@@ -86,6 +86,105 @@ class PagProjetos extends StatelessWidget {
             ),
           ),
 
+          const SizedBox(height: 20),
+
+          Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset(
+                    'assets/imagens/disjuntor.png',
+                    height: 250,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+
+                const ListTile(
+                  title: Text('Disjuntor'),
+                  subtitle: Text(
+                    'Quadro de energia organizado.',
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset(
+                    'assets/imagens/camera.png',
+                    height: 250,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+
+                const ListTile(
+                  title: Text('Câmera de Segurança'),
+                  subtitle: Text(
+                    'Aparelho para monitoramento.',
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset(
+                    'assets/imagens/lampadas.png',
+                    height: 250,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+
+                const ListTile(
+                  title: Text('Lâmpadas'),
+                  subtitle: Text(
+                    'Iluminação interna.',
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset(
+                    'assets/imagens/caixa.png',
+                    height: 250,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+
+                const ListTile(
+                  title: Text('Controlador de Energia'),
+                  subtitle: Text(
+                    'Uma opção prática.',
+                  ),
+                ),
+              ],
+            ),
+          ),
 
         ],
       ),

@@ -12,7 +12,8 @@ class Sobre extends StatelessWidget {
       body: const Padding(
         padding: EdgeInsets.all(20),
         child: Text(
-          'A EBX atende a região de Itapetininga com instalações elétricas de qualidade!',
+          'A EBX atende a região de Itapetininga com instalações elétricas de qualidade!'
+          'Com atendimento personalizado e orçamentos ',
         ),
       ),
     );

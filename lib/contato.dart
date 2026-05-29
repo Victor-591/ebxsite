@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ContatoPage extends StatelessWidget {
-  const ContatoPage({super.key});
+  ContatoPage({super.key});
+
+  final TextEditingController nomeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -9,26 +11,72 @@ class ContatoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Contato'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(20),
+
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: [
-            Text(
+
+            const Text(
               'Fale conosco:',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
-            Text('Telefone: (15) 98804-5866'),
-            SizedBox(height: 10),
-            Text('E-mail: Brunogacl20@gmail.com'),
-            SizedBox(height: 20),
-            Text('Instagram: @ebx_eletrica2023'),
-            SizedBox(height: 10),
-            Text('Endereço: Rua Indalécio Alves, 137 - PQ. São Bento - Itapetininga/SP'),
+
+            const SizedBox(height: 20),
+
+            const Text('Telefone: (15) 98804-5866'),
+
+            const SizedBox(height: 10),
+
+            const Text('E-mail: Brunogacl20@gmail.com'),
+
+            const SizedBox(height: 20),
+
+            const Text('Instagram: ebxeletrica2023@outlook.com'),
+
+            const SizedBox(height: 10),
+
+            const Text(
+              'Endereço: Rua Indalécio Alves, 137 - PQ. São Bento - Itapetininga/SP',
+            ),
+
+            const SizedBox(height: 30),
+
+            TextField(
+              controller: nomeController,
+
+              decoration: const InputDecoration(
+                labelText: 'Mande seu orçamento!',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+
+            ElevatedButton(
+              onPressed: () {
+
+                String nome = nomeController.text;
+
+                print("Salvando no banco: $nome");
+
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Registro Salvo! $nome"),
+                  ),
+                );
+              },
+
+              child: const Text("Registrar solicitação"),
+            ),
           ],
         ),
       ),

@@ -19,6 +19,7 @@ class PagServicos extends StatelessWidget {
           CardServico(nome: 'Orçamentos'),
           CardServico(nome: 'Cabeamentos'),
           CardServico(nome: 'Tomadas'),
+          CardServico(nome: 'Equipamentos'),
         ],
       ),
     );
