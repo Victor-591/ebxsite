@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "149861354267",
+    "project_id": "ebxsite-6963a",
+    "storage_bucket": "ebxsite-6963a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149861354267:android:850a4a2541b08ab18561be",
+        "android_client_info": {
+          "package_name": "com.example.ebx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFN-gtjT01vIbxxuaKvpKo_L9AHHHp2A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
