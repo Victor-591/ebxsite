@@ -14,6 +14,10 @@ class _ContatoPageState extends State<ContatoPage> {
   final TextEditingController mensagemController = TextEditingController();
 
   Future<void> salvarPedido() async {
+    print("Nome: ${nomeController.text}");
+    print("Email: ${emailController.text}");
+    print("Mensagem: ${mensagemController.text}");
+
     await FirebaseFirestore.instance.collection('orcamentos').add({
       'nome': nomeController.text.trim(),
       'email': emailController.text.trim(),
@@ -33,15 +37,15 @@ class _ContatoPageState extends State<ContatoPage> {
 
   @override
   Widget build(BuildContext context) {
-    const Color fundo = Color(0xFF0F172A);
-    const Color destaque = Color(0xFF6366F1);
-    const Color texto = Color(0xFFE2E8F0);
+    const Color fundo = Colors.white;
+    const Color destaque = Colors.blue;
+    const Color texto = Colors.black;
 
     return Scaffold(
       backgroundColor: fundo,
 
       appBar: AppBar(
-        backgroundColor: fundo,
+        backgroundColor: texto,
         foregroundColor: texto,
         elevation: 0,
         centerTitle: true,
@@ -59,7 +63,7 @@ class _ContatoPageState extends State<ContatoPage> {
               children: [
 
                 const Text(
-                  'Entre em contato para realizar um orçamento.',
+                  'Fale conosco!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: texto,
@@ -82,7 +86,7 @@ class _ContatoPageState extends State<ContatoPage> {
                     ),
                     subtitle: Text(
                       'Instagram',
-                      style: TextStyle(color: Colors.white70),
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -102,7 +106,7 @@ class _ContatoPageState extends State<ContatoPage> {
                     ),
                     subtitle: Text(
                       'E-mail',
-                      style: TextStyle(color: Colors.white70),
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -122,7 +126,7 @@ class _ContatoPageState extends State<ContatoPage> {
                     ),
                     subtitle: Text(
                       'Telefone',
-                      style: TextStyle(color: Colors.white70),
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -136,7 +140,7 @@ class _ContatoPageState extends State<ContatoPage> {
                   decoration: InputDecoration(
                     labelText: 'Nome',
                     labelStyle:
-                    const TextStyle(color: Colors.white70),
+                    const TextStyle(color: Colors.black),
 
                     filled: true,
                     fillColor: Colors.white10,
@@ -159,7 +163,7 @@ class _ContatoPageState extends State<ContatoPage> {
                   decoration: InputDecoration(
                     labelText: 'E-mail',
                     labelStyle:
-                    const TextStyle(color: Colors.white70),
+                    const TextStyle(color: Colors.black),
 
                     filled: true,
                     fillColor: Colors.white10,
@@ -182,7 +186,7 @@ class _ContatoPageState extends State<ContatoPage> {
                     labelText:
                     'Orçamentos, sugestões, críticas...',
                     labelStyle:
-                    const TextStyle(color: Colors.white70),
+                    const TextStyle(color: Colors.black),
 
                     filled: true,
                     fillColor: Colors.white10,
@@ -217,7 +221,7 @@ class _ContatoPageState extends State<ContatoPage> {
                             .showSnackBar(
                           const SnackBar(
                             content: Text(
-                              'Preencha todos os campos.',
+                              'Necessário preencher os campos.',
                             ),
                           ),
                         );
@@ -239,7 +243,7 @@ class _ContatoPageState extends State<ContatoPage> {
                             .showSnackBar(
                           const SnackBar(
                             content: Text(
-                              'Solicitação enviada com sucesso!',
+                              'Solicitação enviada!',
                             ),
                           ),
                         );
@@ -250,7 +254,7 @@ class _ContatoPageState extends State<ContatoPage> {
                             .showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Erro ao enviar: $e',
+                              'Algo deu errado. $e',
                             ),
                           ),
                         );
@@ -259,9 +263,9 @@ class _ContatoPageState extends State<ContatoPage> {
                     },
 
                     child: const Text(
-                      'Enviar Solicitação',
+                      'Enviar mensagem',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 16,
                       ),
                     ),

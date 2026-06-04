@@ -6,6 +6,9 @@ class PagServicos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color fundo = Color(0xFF0F172A);
+    const Color destaque = Color(0xFF6366F1);
+    const Color texto = Color(0xFFE2E8F0);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Serviços realizados pela EBX:'),
@@ -17,7 +20,7 @@ class PagServicos extends StatelessWidget {
             const SizedBox(height: 20),
 
             const Text(
-              'Serviços Oferecidos',
+              '',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,

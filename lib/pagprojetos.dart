@@ -6,6 +6,7 @@ class PagProjetos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Galeria de Projetos'),
@@ -65,21 +66,21 @@ class PagProjetos extends StatelessWidget {
               ),
 
               _cardProjeto(
-                'assets/imagens/caixa.png',
-                'Controlador de Energia',
-                'Uma opção prática.',
+                'assets/imagens/televisor.png',
+                'Televisor',
+                'Aparelho com luzes.',
               ),
 
               _cardProjeto(
-                'assets/imagens/caixa.png',
-                'Controlador de Energia',
-                'Uma opção prática.',
+                'assets/imagens/luzes.png',
+                'Luzes Externas',
+                'Iluminação para entrada.',
               ),
 
               _cardProjeto(
-                'assets/imagens/caixa.png',
-                'Controlador de Energia',
-                'Uma opção prática.',
+                'assets/imagens/disjuntordois.png',
+                'Organização do quadro',
+                'Detalhamento.',
               ),
             ],
           );
@@ -110,6 +111,7 @@ class PagProjetos extends StatelessWidget {
 
           ListTile(
             title: Text(titulo),
+
             subtitle: Text(descricao),
           ),
         ],

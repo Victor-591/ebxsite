@@ -29,7 +29,10 @@ class Sobre extends StatelessWidget {
                 SizedBox(height: 30),
 
                 Text(
-                  'A EBX oferece serviços de instalação elétrica para residências, comércios e indústrias de Itapetininga e região. Há mais de dez anos no mercado, a EBX trabalha com materiais e parceiros de qualidade, além de ofertar orçamentos personalizados de acordo com a necessidade do cliente.',
+                  'A EBX oferece serviços de instalação elétrica para residências,'
+                      ' comércios e indústrias de Itapetininga e região. Há mais de dez anos no mercado,'
+                      ' a EBX trabalha com materiais e parceiros de qualidade, além de ofertar orçamentos personalizados'
+                      ' de acordo com a necessidade do cliente.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,

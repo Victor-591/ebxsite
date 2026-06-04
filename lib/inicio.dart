@@ -11,7 +11,7 @@ class Inicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EBX Instalações Elétricas'),
+        title: const Text(''),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -20,7 +20,7 @@ class Inicio extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(30),
-              color: Colors.blue,
+              color: Colors.blue[900],
               child: const Column(
                 children: [
                   Icon(Icons.lightbulb,
@@ -35,7 +35,7 @@ class Inicio extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'A melhor solução em Itapetininga!',
+                    'Comercial, Residencial e Industrial',
                     textAlign: TextAlign.center,
                   ),
                 ],
