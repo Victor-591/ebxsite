@@ -1,23 +1,29 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import '../models/mensagens.dart';
 
 class FirestoreService {
-  final FirebaseFirestore db = FirebaseFirestore.instance;
+  final FirebaseFirestore db = FirebaseFirestore.instanceFor(
+    app: Firebase.app(),
+    databaseId: 'ebxsite',
+  );
 
   Future<void> salvarMensagem(Mensagens mensagem) async {
     try {
-      print('Tentando conectar ao Firestore...');
+      print('Conectando ao Firestore...');
 
-      final documento = await db
-          .collection('orcamentos')
-          .add(mensagem.toMap())
-          .timeout(const Duration(seconds: 15));
+      final documento = await db.collection('orcamentos').add({
+        'nome': mensagem.nome,
+        'email': mensagem.email,
+        'mensagem': mensagem.mensagem,
+        'dataCadastro': FieldValue.serverTimestamp(),
+      });
 
       print('Mensagem salva com sucesso!');
-      print('ID do documento: ${documento.id}');
+      print('ID: ${documento.id}');
     } catch (e) {
-      print('ERRO NO FIRESBASE: $e');
+      print('ERRO AO SALVAR: $e');
       rethrow;
     }
   }

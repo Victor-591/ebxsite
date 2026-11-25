@@ -1,6 +1,7 @@
-///
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContatoPage extends StatefulWidget {
@@ -23,6 +24,11 @@ class _ContatoPageState extends State<ContatoPage> {
   static const Color azul = Color(0xFF2563EB);
   static const Color fundo = Color(0xFFF1F5F9);
   static const Color texto = Color(0xFF334155);
+
+  final FirebaseFirestore db = FirebaseFirestore.instanceFor(
+    app: Firebase.app(),
+    databaseId: 'ebxsite',
+  );
 
   Future<void> abrirLink(String endereco) async {
     final Uri url = Uri.parse(endereco);
@@ -52,14 +58,24 @@ class _ContatoPageState extends State<ContatoPage> {
   }
 
   Future<void> salvarPedido() async {
-    await FirebaseFirestore.instance.collection('orcamentos').add({
-      'nome': nomeController.text.trim(),
-      'email': emailController.text.trim(),
-      'mensagem': mensagemController.text.trim(),
-      'tipoSolicitacao': tipoSelecionado,
-      'dataCadastro': Timestamp.now(),
-      'status': 'Novo',
-    }).timeout(const Duration(seconds: 15));
+    try {
+      print('Salvando orçamento no banco ebxsite...');
+
+      final documento = await db.collection('orcamentos').add({
+        'nome': nomeController.text.trim(),
+        'email': emailController.text.trim(),
+        'mensagem': mensagemController.text.trim(),
+        'tipoSolicitacao': tipoSelecionado,
+        'dataCadastro': FieldValue.serverTimestamp(),
+        'status': 'Novo',
+      });
+
+      print('ORÇAMENTO SALVO COM SUCESSO!');
+      print('ID DO DOCUMENTO: ${documento.id}');
+    } catch (e) {
+      print('ERRO AO SALVAR ORÇAMENTO: $e');
+      rethrow;
+    }
   }
 
   Future<void> enviarMensagem() async {
@@ -222,7 +238,7 @@ class _ContatoPageState extends State<ContatoPage> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Preencha os campos abaixo para enviar uma sugestão ou solicitar um orçamento.',
+                  'Fale conosco (sugestões, orçamentos, etc...',
                   style: TextStyle(fontSize: 15, color: texto),
                 ),
                 const SizedBox(height: 20),
@@ -337,18 +353,16 @@ class _ContatoPageState extends State<ContatoPage> {
                               ),
                               icon: enviando
                                   ? const SizedBox(
-                                      width: 18,
-                                      height: 18,
-                                      child: CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                        color: Colors.white,
-                                      ),
-                                    )
+                                width: 18,
+                                height: 18,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: Colors.white,
+                                ),
+                              )
                                   : const Icon(Icons.send),
                               label: Text(
-                                enviando
-                                    ? 'Enviando...'
-                                    : 'Enviar mensagem',
+                                enviando ? 'Enviando...' : 'Enviar mensagem',
                               ),
                             ),
                           ),
@@ -365,3 +379,4 @@ class _ContatoPageState extends State<ContatoPage> {
     );
   }
 }
+

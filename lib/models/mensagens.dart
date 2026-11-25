@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Mensagens {
@@ -23,15 +24,19 @@ class Mensagens {
   }
 
   factory Mensagens.fromSnapshot(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-  ) {
-    final dados = snapshot.data()!;
+      DocumentSnapshot<Map<String, dynamic>> snapshot,
+      ) {
+    final dados = snapshot.data();
+
+    if (dados == null) {
+      throw Exception('Documento sem dados.');
+    }
 
     return Mensagens(
-      nome: dados['nome'],
-      email: dados['email'],
-      mensagem: dados['mensagem'],
-      dataCadastro: dados['dataCadastro'],
+      nome: dados['nome'] ?? '',
+      email: dados['email'] ?? '',
+      mensagem: dados['mensagem'] ?? '',
+      dataCadastro: dados['dataCadastro'] ?? Timestamp.now(),
     );
   }
 }

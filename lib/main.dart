@@ -1,6 +1,7 @@
-///
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'firebase_options.dart';
 import 'inicio.dart';
@@ -13,8 +14,22 @@ Future<void> main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
+    // Teste de conexão com o banco Firestore "ebxsite"
+    print('TESTANDO CONEXÃO COM FIRESTORE...');
+
+    final firestore = FirebaseFirestore.instanceFor(
+      app: Firebase.app(),
+      databaseId: 'ebxsite',
+    );
+
+    await firestore.collection('Teste').limit(1).get();
+
+    print('FIRESTORE CONECTADO COM SUCESSO!');
+
     runApp(const EBX());
   } catch (e) {
+    print('ERRO AO INICIALIZAR OU CONECTAR AO FIREBASE: $e');
+
     runApp(AppErro(erro: e.toString()));
   }
 }
@@ -70,4 +85,5 @@ class AppErro extends StatelessWidget {
     );
   }
 }
+
 
